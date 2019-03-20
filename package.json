@@ -1,0 +1,35 @@
+{
+  "name": "lain",
+  "version": "1.0.0",
+  "description": "Lightning Network implimentation",
+  "main": "./src/index.js",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json",
+    "start": "npx ts-node ts_src/index.ts",
+    "test": "npm run build && mocha ./src/test/*.test.js",
+    "debug": "npm run build && node --inspect-brk --require ts-node/register ts_src/index.ts"
+  },
+  "author": "YusukeShimizu",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.11.3",
+    "chai": "^4.2.0",
+    "eslint": "^5.15.3",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "ts-node": "^8.0.3",
+    "typemoq": "^2.1.0"
+  },
+  "dependencies": {
+    "@types/bitcoinjs-lib": "^4.0.1",
+    "bitcoinjs-lib": "^4.0.3",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "typescript": "^3.3.3333"
+  }
+}

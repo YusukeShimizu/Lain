@@ -1,5 +1,5 @@
 import * as bitcoinjs from 'bitcoinjs-lib';
-import {Server} from './Server';
+import {Server} from './server/Server';
 
 const ecPair = bitcoinjs.ECPair.makeRandom();
 const server = new Server(ecPair.privateKey);

@@ -1,4 +1,4 @@
-import * as Noise from './noise/noise';
+import * as Noise from '../noise/noise';
 
 export class Server {
     _privateKey: Buffer;

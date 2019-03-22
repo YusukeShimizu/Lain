@@ -1,7 +1,7 @@
 import * as chai from 'chai';
 import { describe, it } from 'mocha';
 
-import { Server } from '../Server';
+import { Server } from '../server/Server';
 
 describe('Server Creation', () => {
 

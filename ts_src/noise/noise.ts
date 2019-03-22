@@ -16,6 +16,7 @@ class Conn {
 export function Dial(privateKey: Buffer, addr: string, port: number) {
   const conn = new Conn(new Net.Socket());
   conn.connect(addr, port);
-  const actOne = Machine.GenActOne(privateKey);
+  console.log(privateKey.byteLength);
+  const actOne = Machine.GenActOne(Buffer.from('test'));
   conn.socket.write(actOne);
 }

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
     "start": "npx ts-node ts_src/index.ts",
-    "test": "npm run build && mocha ./src/test/*.test.js",
+    "testAll": "npm run build && mocha ./src/test/*.test.js",
+    "test": "npm run build && mocha",
     "debug": "npm run build && node --inspect-brk --require ts-node/register ts_src/index.ts"
   },
   "author": "YusukeShimizu",

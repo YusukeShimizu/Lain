@@ -6,10 +6,10 @@
  *
  * Parts of this software are based on LND and hsd:
  *   Copyright (C) 2015-2017 The Lightning Network Developers
- *   brontide.js - peer-to-peer communication encryption.
- *   Copyright (c) 2018, Christopher Jeffrey (MIT License).
  *   https://github.com/lightningnetwork/lnd/blob/master/brontide/noise.go
  *   https://github.com/lightningnetwork/lnd/blob/master/brontide/noise_test.go
+ *   brontide.js - peer-to-peer communication encryption.
+ *   Copyright (c) 2018, Christopher Jeffrey (MIT License).
  */
 
 'use strict';
@@ -220,11 +220,11 @@ class HandshakeState extends SymmetricState {
 }
 
 /**
- * Brontide
+ * Noise
  * @extends {HandshakeState}
  */
 
-class Brontide extends HandshakeState {
+class Noise extends HandshakeState {
   constructor() {
     super();
     this.sendCipher = new CipherState();
@@ -242,7 +242,7 @@ class Brontide extends HandshakeState {
     const ephemeral = getPublic(this.localEphemeral);
     this.mixHash(ephemeral);
 
-    // ec
+    // es
     const s = ecdh(this.remoteStatic, this.localEphemeral);
     this.mixKey(s);
 
@@ -497,4 +497,4 @@ function expand(secret, salt, info) {
 exports.CipherState = CipherState;
 exports.SymmetricState = SymmetricState;
 exports.HandshakeState = HandshakeState;
-exports.Brontide = Brontide;
+exports.Noise = Noise;

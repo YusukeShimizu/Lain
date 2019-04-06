@@ -4,7 +4,7 @@
 'use strict';
 
 const assert = require('assert');
-const {Brontide} = require('../Lain/noise');
+const {Noise} = require('../Lain/noise');
 
 const HELLO = Buffer.from('hello', 'ascii');
 const PROLOGUE = 'lightning';
@@ -25,7 +25,7 @@ describe('Noise', function() {
     const epriv =
       '1212121212121212121212121212121212121212121212121212121212121212';
 
-    initiator = new Brontide();
+    initiator = new Noise();
     initiator.generateKey = () => Buffer.from(epriv, 'hex');
 
     initiator.initState(
@@ -71,7 +71,7 @@ describe('Noise', function() {
     const epriv =
       '2222222222222222222222222222222222222222222222222222222222222222';
 
-    responder = new Brontide();
+    responder = new Noise();
     responder.generateKey = () => Buffer.from(epriv, 'hex');
     responder.initState(false, PROLOGUE, Buffer.from(lspriv, 'hex'), null);
 

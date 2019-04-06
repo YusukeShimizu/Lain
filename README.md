@@ -10,7 +10,7 @@ node.js version v10.15.3   (Latest LTS: Dubnium).
 git clone git@github.com:YusukeShimizu/Lain.git
 cd Lain
 npm install
-npm run start
+npm run test
 ```
 
 ## BOLT
@@ -20,7 +20,7 @@ npm run start
 * [ ] 04-onion-routing
 * [ ] 05-onchain
 * [ ] 07-routing-gossip
-* [ ] 08-transport
+* [x] 08-transport
 * [ ] 09-features
 * [ ] 10-dns-bootstrap
 * [ ] 11-payment-encoding

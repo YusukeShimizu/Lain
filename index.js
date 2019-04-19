@@ -6,35 +6,24 @@ const net = require('net');
 
 const initiator = new Noise();
 const staticPriv = initiator.generateKey();
-
-initiator.initState(
-  true,
-  'lightning',
-  Buffer.from(staticPriv, 'hex'),
-  Buffer.from('03021c5f5f57322740e4ee6936452add19dc7ea7ccf90635f95119ab82a62ae268', 'hex')
-);
-
-const client = new net.Socket();
+const remotePub = '03021c5f5f57322740e4ee6936452add19dc7ea7ccf90635f95119ab82a62ae268'
 
 const host = '207.180.244.165';
 const port = 9735;
 
-client.connect( port, host, function(){
-  console.log( 'connecting to: ' + host + ':' + port );
-  client.write( initiator.genActOne() );
-});
-
-client.on( 'data', function( data ){
-  console.log(data)
-});
-
 const stream = new NoiseStream()
 const socket = net.connect(port,host)
 
-stream.connect(socket,Buffer.from(staticPriv, 'hex'),  Buffer.from('03021c5f5f57322740e4ee6936452add19dc7ea7ccf90635f95119ab82a62ae268', 'hex'))
+const s = stream.connect(
+  socket,
+  Buffer.from(staticPriv, 'hex'),
+  Buffer.from(remotePub, 'hex')
+);
 
-stream.on('data', (chunk) => {
-  console.log(chunk)
-  this.lastRecv = Date.now();
-  this.feedParser(chunk);
-});
+s.start();
+
+const FRAME_TIME    = 5000; // [ms/frame]
+
+setInterval(function() {
+  console.log(Date.now());
+}, FRAME_TIME);

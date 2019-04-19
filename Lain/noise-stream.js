@@ -4,10 +4,7 @@
  * Resources:
  *   https://github.com/lightningnetwork/lightning-rfc/blob/master/08-transport.md
  *
- * Parts of this software are based on LND and hsd:
- *   Copyright (C) 2015-2017 The Lightning Network Developers
- *   https://github.com/lightningnetwork/lnd/blob/master/brontide/noise.go
- *   https://github.com/lightningnetwork/lnd/blob/master/brontide/noise_test.go
+ * Parts of this software are based on hsd:
  *   brontide.js - peer-to-peer communication encryption.
  *   Copyright (c) 2018, Christopher Jeffrey (MIT License).
  */
@@ -34,8 +31,8 @@ const ACT_THREE = 3;
 const ACT_DONE = 4;
 
 /**
- * BrontideStream
- * @extends {Brontide}
+ * NoiseStream
+ * @extends {Noise}
  */
 
 class NoiseStream extends Noise {

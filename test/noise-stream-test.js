@@ -35,7 +35,7 @@ function establishTestConnection() {
     Buffer.from(remotePriv,'hex'),
     Buffer.from(Addr,'hex')
   );
-  return[stream,remoteStream,listener]
+  return[stream,remoteStream]
 }
 
 /*
@@ -43,7 +43,7 @@ function establishTestConnection() {
  */
 
 describe('Noise-stream', () => {
-  const [stream,remoteStream,listener] = establishTestConnection();
+  const [stream,remoteStream] = establishTestConnection();
   it('should test connection establishment', () => {
     const testMessage = "Hello World!";
     remoteStream.once('connect',()=>{
